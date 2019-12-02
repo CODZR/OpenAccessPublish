@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+    .lucenty{
+        background:#000000;opacity:0.7;
+    }
+    .pos{
+        position: relative;
+        left: 80px;
+    }
+    </style>
+    <div class="jumbotron container pos lucenty">
+    <h1>Subjects</h1>
+    </div>
+    <div class="container pos lucenty">
+        <div class="list-group">
+        {% for a in articles %}
+            <a href="/detail/{{ a.id }}" class="list-group-item list-group-item-action">
+                {{ a.title }}</a>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}

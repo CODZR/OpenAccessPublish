@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {%if title%}
+    <title>title--home</title>
+    {%else%}
+    <title>New Home</title>
+    {%endif%}
+    <!-- Theme -->
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/static/css/animate.min.css" />
+        <link rel="stylesheet" href="/static/css/vegas.min.css" />
+        <link rel="stylesheet" href="/static/css/style.css" />
+        <link rel="stylesheet" href="/static/css/style2.css" />
+	<link rel="shortcut icon" href="/static/bg/tz.ico" type="image/x-icon"/>
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://at.alicdn.com/t/font_xtmtjsdjlmc84cxr.css">
+        <link rel="stylesheet" href="https://at.alicdn.com/t/font_k8psy17rqdoyldi.css">
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+<style>
+    .pos{
+        position: relative;
+        left: 20px;
+    }
+    .lucenty{
+        background-color:rgba(255,255,255,0.5);
+    }
+</style>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        height: 100%;
+        width: 100%;
+    }
+    h1{
+        height: 50px;
+        width: 400px;
+        margin: 100px auto;
+        text-align: center;
+    }
+    form{
+        margin: 0px auto;
+        width: 300px;
+        height: 300px;
+    }
+    form p{
+        width: 250px;
+        margin:15px auto;
+    }
+    form input{
+        margin-left: 5px;
+    }
+
+</style>
+<body>
+
+    <h1>Welcome to {{title}}</h1>
+    <div class="pos">
+        <form action="" method="post" name="login">
+            {{ form.csrf_token }}
+            <p class="nickname">
+                &emsp;Nickname:{{form.nickname}}
+            </p>
+            <p class="password">
+                &emsp;password:{{form.password}}
+            </p>
+            <p >&emsp;{{form.remember_me.label}}{{form.remember_me()}}</p>
+            <p >{{form.submit}}</p>
+            <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
+        </form>
+    </div>
+<!-- Page -->
+    <div class="page-loader"></div><!-- 循环进度条读取网页 -->
+    <span id="h-animate" class="wow zoomInLeft" data-wow-delay="2s">&#10084;</span><!-- 开场 心 效果 -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/vegas.min.js"></script>
+    <script src="/static/js/wow.min.js"></script>
+    <script src="/static/js/dist/clipboard.min.js"></script>
+    <script src="/static/js/index.js"></script>
+
+</body>
+</html>

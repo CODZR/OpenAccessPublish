@@ -1,0 +1,7 @@
+flask_sqlalchemy
+flask_wtf
+flask_mail
+flask_login
+flask_script
+pillow
+pymysql

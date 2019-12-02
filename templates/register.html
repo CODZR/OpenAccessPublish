@@ -1,0 +1,81 @@
+{% block content %}
+<header>
+    <style>
+    .pos{
+        position: relative;
+        left: 130px;
+    }
+    .lucenty{
+        background-color:rgba(255,255,255,0.5);
+    }
+</style>
+
+     <!-- Theme -->
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/static/css/animate.min.css" />
+        <link rel="stylesheet" href="/static/css/vegas.min.css" />
+        <link rel="stylesheet" href="/static/css/style.css" />
+        <link rel="stylesheet" href="/static/css/style2.css" />
+	<link rel="shortcut icon" href="/static/bg/tz.ico" type="image/x-icon"/>
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://at.alicdn.com/t/font_xtmtjsdjlmc84cxr.css">
+        <link rel="stylesheet" href="https://at.alicdn.com/t/font_k8psy17rqdoyldi.css">
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+    <div class="container  pos">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="logo-desc wow bounceInRight" data-wow-delay="0.4s" >
+                 <a href="{{ url_for('register') }}"> <span class="logo-desc-text" href="/"><i class="iconfont">&#xe619;</i>Register</span></a>
+                </div>
+            </div>
+
+        </div><!-- /.Row -->
+    </div><!-- ./container -->
+    <form action="" method="post">
+        <div class="pos">
+            {{ form.hidden_tag() }}
+            <div>
+                {{ form.email.label }}<br>
+                {{ form.email(size=64) }}<br>
+                {% for error in form.email.errors %}
+                <span >[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <br>
+            <div>
+                {{ form.nickname.label }}<br>
+                {{ form.nickname(size=32) }}<br>
+                {% for error in form.nickname.errors %}
+                <span>[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <br>
+            <div>
+                {{ form.password.label }}<br>
+                {{ form.password(size=32) }}<br>
+                {% for error in form.password.errors %}
+                <span>[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <br>
+            <div>
+                {{ form.password2.label }}<br>
+                {{ form.password2(size=32) }}<br>
+                {% for error in form.password2.errors %}
+                <span>[{{ error }}]</span>
+                {% endfor %}
+            </div>
+            <br>
+            <div>{{ form.submit() }}</div>
+        </div>
+    </form>
+</header>
+    <!-- Page -->
+    <div class="page-loader"></div><!-- 循环进度条读取网页 -->
+    <span id="h-animate" class="wow zoomInLeft" data-wow-delay="2s">&#10084;</span><!-- 开场 心 效果 -->
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/vegas.min.js"></script>
+    <script src="/static/js/wow.min.js"></script>
+    <script src="/static/js/dist/clipboard.min.js"></script>
+    <script src="/static/js/index.js"></script>
+{% endblock %}

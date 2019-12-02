@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+    .lucenty{
+        background:#000000;opacity:0.5;
+    }
+    .pos{
+        position: relative;
+        left: 130px;
+    }
+    </style>
+    <main class="container pos ">
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <div class="form-group" >{{ form.email.label }}{{ form.email(class='form-control') }}</div>
+            <div class="form-group" >{{ form.submit }}</div>
+        </form>
+    </main>
+{% endblock %}

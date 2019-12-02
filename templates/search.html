@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+    <style>
+    .pos{
+        position: relative;
+        left: 80px;
+    }
+    .lucenty{
+        background-color:rgba(255,255,255,0.5);
+    }
+    </style>
+    <div class="container pos lucenty" >
+        <ul class="list-group">
+            <div class="container card" >
+                <h2 class="card-title text-center" >Search</h2>
+            </div>
+                {{ form.hidden_tag() }}
+                <form action="" method="post" class="card-body card-text" >
+                    <span class="iconfont search-text-icon" style="position:relative; left: 130px">&#xe714;</span>
+                    <p class="form-inline" >{{ form.content.label }}</p>
+                    <p > {{ form.content }}</p>
+                    <p class="form-group" >{{ form.submit }}</p>
+
+                </form>
+
+        <div class="container" ><h2>Related Articles</h2></div>
+            {% for a in list %}
+                <li class="container card lucenty">
+                    <div class="card-body">
+                        <a href="detail/{{ a.id }}"><h2
+                                class="card-title text-center font-weight-bold">{{ a.title }}</h2></a>
+                        <dl class="card-text">
+                            <dt>Author:</dt>
+                            <dd>{{ a.author }}</dd>
+                            <dt>Date:</dt>
+                            <dd>{{ a.date.strftime('%Y-%m-%d %H:%M:%S') }}</dd>
+                            <dt>Highlight:</dt>
+                            <dd>
+                                <p class="blockquote">{{ a.highlight }}</p>
+                            </dd>
+                        </dl>
+                        <a href="/download/{{ a.pdf }}" class="card-link">Download</a></div>
+                </li>
+            {% endfor %}
+        <div class="container"><h2 >Related Comments</h2></div>
+        {% for a in commentlist %}
+                <li class="container card">
+                    <div class="card-body" >
+                        <a href="detail/{{ a.target }}">{{ a.content }}</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <br><br><br><br>
+{% endblock %}
